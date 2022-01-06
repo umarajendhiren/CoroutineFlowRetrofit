@@ -11,6 +11,12 @@ import com.devtides.androidcoroutinesflow.viewmodel.ListViewModel
 import com.devtides.coroutinesretrofit.view.NewsListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
+/*objective:
+* get news from backend using Retrofit
+* convert that list of news into flow using coroutine flow
+* Then convert  the emitted  flow to livedata in viewModel
+* finally, Activity observes newsArticle livedata and update the UI  */
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var viewModel: ListViewModel
@@ -32,6 +38,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         viewModel.newsArticles.observe(this, Observer { article ->
+
+            loading_view.visibility = View.GONE
+            newsList.visibility = View.VISIBLE
+            //this will add item at index 0
+            newsListAdapter.onAddNewsItem(article)
+            newsList.smoothScrollToPosition(0)
+
 
         })
     }
