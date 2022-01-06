@@ -10,6 +10,6 @@ class ListViewModel: ViewModel() {
    // val newsArticles = MutableLiveData<String>()
 
     //here we are converting flow into LiveData
-    val newsArticle=NewsRepository().getNewsArticle().asLiveData()
+    val newsArticles=NewsRepository().getNewsArticle().asLiveData()
 
 }

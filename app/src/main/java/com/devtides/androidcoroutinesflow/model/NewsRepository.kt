@@ -22,7 +22,7 @@ private val newsService = Retrofit.Builder()
     .build()
     .create(NewsRetrofitService::class.java)
 
-/*this function get the new from backend (list of NewsArticle)and convert into flow and emit each value with delay of 2000ms */
+/*this function get the news from backend (list of NewsArticle)and convert into flow and emit each value with delay of 2000ms */
     fun getNewsArticle(): Flow<NewsArticle>{
 
         return flow {
